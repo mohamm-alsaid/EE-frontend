@@ -1,4 +1,4 @@
-import requests
+import request
 import urllib
 from flask import Flask, render_template
 
@@ -19,6 +19,12 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template('contact.html', title='contact')
+
+# routing login
+@app.route('/login')
+#@app.route('/login', methods=['POST'])
+def login():
+    return render_template('login.html',title='login')
 
 if __name__ == '__main__':
     app.run(debug=True)

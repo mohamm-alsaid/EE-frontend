@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block settings %}
+	<script type='text/javascript'>
+		function range_handler(val)
+		{
+			document.getElementById('lbl_participation').innerHTML='participate with: '+val+'%';
+		}
+	</script>
+	
+	<table class='table'>
+		<tr>
+			<th scope='col'>Comfort: </th>
+			<td scope='col'>Shortage of hot water will be minimal</td>
+		</tr>
+		<tr>
+			<th scope='col'>Value: </th>
+			<td scope='col'>Hot water shortage may be experienced during peak usage hours</td>
+		</tr>
+
+	</table>
+	<form action="{{ url_for('settings')}}" method='POST'>
+		<div class='form-group'>
+			<label for='formControlRange'>range</label>
+			<!--0<input type='range' min=1 max=100 class='form-control-range' id='formControlRange'>100-->
+			<input type='range' class='custom-range' min=0 max=100 step=1 id='participation' name='participation' oninput="range_handler(this.value)" onchange="range_handler(this.value)">
+			<div>
+			<label id='lbl_participation'>participate with: 50%</label>
+			</div>
+			<button type=submit class='btn btn-success'>Submit</button>
+		</div>
+	</form>
+
+{% endblock %}

@@ -1,1 +1,1 @@
-# EE-frontend
+# HMI-SPC-webapp
